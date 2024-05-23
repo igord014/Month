@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Определяет набор символов как UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Устанавливает видовую область для адаптивного дизайна -->
+    <title>Month Name Output</title>
+    <!-- Название страницы, отображаемое на вкладке браузера -->
+    <style>
+      body {
+        font-family: Arial, sans-serif; /* Устанавливает шрифт для текста на странице */
+        margin: 0; /* Убирает стандартные отступы */
+        padding: 0; /* Убирает стандартные поля */
+        display: flex; /* Использует Flexbox для выравнивания содержимого */
+        justify-content: center; /* Горизонтально центрирует содержимое */
+        align-items: center; /* Вертикально центрирует содержимое */
+        height: 100vh; /* Устанавливает высоту контейнера равной высоте окна браузера */
+        width: 50;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 20px 0 0 20px;
+        border: 2px solid #ccc; 
+      }
+
+      input[type="number"] {
+        padding: 10px; /* Добавляет внутренние отступы */
+        font-size: 16px; /* Устанавливает размер шрифта */
+        border: 1px solid #ccc; /* Устанавливает границу вокруг поля */
+        border-radius: 5px; /* Скругляет углы поля */
+      }
+
+      button {
+        padding: 10px 20px; /* Добавляет внутренние отступы */
+        font-size: 16px; /* Устанавливает размер шрифта */
+        background-color: #007bff; /* Устанавливает цвет фона кнопки */
+        color: #fff; /* Устанавливает цвет текста кнопки */
+        border: none; /* Убирает стандартную границу */
+        border-radius: 5px; /* Скругляет углы кнопки */
+        cursor: pointer; /* Меняет указатель мыши на указатель при наведении */
+        margin-left: 10px; /* Добавляет отступ слева */
+      }
+
+      button:hover {
+        background-color: #0056b3; /* Меняет цвет фона кнопки при наведении */
+      }
+
+      #outputField {
+        margin-top: 20px; /* Добавляет отступ сверху */
+        padding: 10px; /* Добавляет внутренние отступы */
+        font-size: 16px; /* Устанавливает размер шрифта */
+        border: 1px solid #ccc; /* Устанавливает границу вокруг поля */
+        border-radius: 5px; /* Скругляет углы поля */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input
+        type="number"
+        id="inputField"
+        placeholder="Enter month number"
+       
+      />
+      <!-- Поле ввода для номера месяца с ограничением от 1 до 12 -->
+      <button id="submitButton">Submit</button>
+      <!-- Кнопка для отправки введенного значения -->
+      <div id="outputField"></div>
+      <!-- Поле для вывода результата -->
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Ожидает полной загрузки документа перед выполнением функции
+        const inputField = document.getElementById("inputField"); // Получает элемент поля ввода по его ID
+        const submitButton = document.getElementById("submitButton"); // Получает элемент кнопки по его ID
+        const outputField = document.getElementById("outputField"); // Получает элемент поля вывода по его ID
+
+        submitButton.addEventListener("click", function () {
+          // Добавляет обработчик события для кнопки, который срабатывает при клике
+          const monthNumber = parseInt(inputField.value, 10); // Получает значение из поля ввода и преобразует его в число
+          let monthName; // Объявляет переменную для хранения названия месяца
+
+          // Использует оператор switch для определения названия месяца по введенному числу
+          switch (monthNumber) {
+            case 1:
+              monthName = "January";
+              break;
+            case 2:
+              monthName = "February";
+              break;
+            case 3:
+              monthName = "March";
+              break;
+            case 4:
+              monthName = "April";
+              break;
+            case 5:
+              monthName = "May";
+              break;
+            case 6:
+              monthName = "June";
+              break;
+            case 7:
+              monthName = "July";
+              break;
+            case 8:
+              monthName = "August";
+              break;
+            case 9:
+              monthName = "September";
+              break;
+            case 10:
+              monthName = "October";
+              break;
+            case 11:
+              monthName = "November";
+              break;
+            case 12:
+              monthName = "December";
+              break;
+            default:
+              monthName = "Invalid month"; // Устанавливает значение по умолчанию, если введенное число не соответствует ни одному месяцу
+          }
+
+          outputField.textContent = monthName; // Отображает название месяца в поле вывода
+        });
+      });
+    </script>
+  </body>
+</html>
